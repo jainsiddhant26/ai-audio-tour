@@ -8,7 +8,7 @@ Built with **CrewAI**, **Groq (Llama 3.3 70B)**, **Edge-TTS**, and **Streamlit**
 
 ## 🌍 Live Demo
 
-🔗 Coming Soon
+🔗 [https://ai-audio-tour-bijsbruz3ary4bjt3dofjy.streamlit.app/](https://ai-audio-tour-bijsbruz3ary4bjt3dofjy.streamlit.app/)
 
 ---
 
@@ -36,7 +36,7 @@ Traditional audio guides at tourist sites are:
 - **Inflexible** — fixed duration and topics
 - **Unavailable** — most landmarks have no guide at all
 
-**AI Audio Tour Guide** solves this by generating a fully personalized, spoken tour for *any* landmark in the world — tailored to the visitor’s interests and available time — completely free.
+**AI Audio Tour Guide** solves this by generating a fully personalized, spoken tour for *any* landmark in the world — tailored to the visitor's interests and available time — completely free.
 
 ---
 
@@ -47,7 +47,7 @@ Traditional audio guides at tourist sites are:
 - Wants context and stories, not just facts
 - Has 10–15 minutes at each spot
 - Prefers simple, conversational English
-- Doesn’t want to pay for a human guide
+- Doesn't want to pay for a human guide
 
 ---
 
