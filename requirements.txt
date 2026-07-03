@@ -1,5 +1,5 @@
 streamlit
-crewai
+crewai==0.86.0
 groq
 edge-tts
 tavily-python
