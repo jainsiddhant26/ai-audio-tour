@@ -6,9 +6,10 @@ from crewai import Agent, Task, Crew, Process, LLM
 # Load environment variables
 load_dotenv()
 
-# Disable LiteLLM cache_control headers (incompatible with Groq)
+# Disable ALL LiteLLM/CrewAI prompt caching — incompatible with Groq
 os.environ["LITELLM_CACHE"] = "False"
 os.environ["CREWAI_DISABLE_PROMPT_CACHING"] = "true"
+os.environ["LITELLM_DROP_PARAMS"] = "True"
 
 # Configure native CrewAI LLM with Groq
 groq_api_key = os.getenv("GROQ_API_KEY") or (st.secrets.get("GROQ_API_KEY") if "GROQ_API_KEY" in st.secrets else None)
@@ -97,7 +98,6 @@ def run_tour_agents(location, topics, duration):
         agent=planner
     )
 
-    # We'll create specialized tasks for each topic, only if they are requested
     topic_tasks = []
     
     if "History" in topics:
@@ -134,7 +134,6 @@ def run_tour_agents(location, topics, duration):
         context=topic_tasks
     )
 
-    # Create Crew
     crew = Crew(
         agents=[planner, historian, architect, culturalist, orchestrator],
         tasks=[plan_task] + topic_tasks + [orchestration_task],
