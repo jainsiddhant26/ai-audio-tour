@@ -6,6 +6,10 @@ from crewai import Agent, Task, Crew, Process, LLM
 # Load environment variables
 load_dotenv()
 
+# Disable LiteLLM cache_control headers (incompatible with Groq)
+os.environ["LITELLM_CACHE"] = "False"
+os.environ["CREWAI_DISABLE_PROMPT_CACHING"] = "true"
+
 # Configure native CrewAI LLM with Groq
 groq_api_key = os.getenv("GROQ_API_KEY") or (st.secrets.get("GROQ_API_KEY") if "GROQ_API_KEY" in st.secrets else None)
 tavily_api_key = os.getenv("TAVILY_API_KEY") or (st.secrets.get("TAVILY_API_KEY") if "TAVILY_API_KEY" in st.secrets else None)
