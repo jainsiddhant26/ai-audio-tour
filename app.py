@@ -1,4 +1,10 @@
 import os
+
+# MUST be set before any crewai/litellm imports to drop unsupported params (e.g. cache_breakpoint) for Groq
+os.environ["LITELLM_DROP_PARAMS"] = "True"
+os.environ["LITELLM_CACHE"] = "False"
+os.environ["CREWAI_DISABLE_PROMPT_CACHING"] = "true"
+
 import streamlit as st
 from dotenv import load_dotenv
 from agents.tour_agents import run_tour_agents
@@ -97,7 +103,6 @@ st.text_area("Script", value=current_script, height=400, label_visibility="colla
 st.subheader("Listen to Your Tour")
 if 'audio_path' in st.session_state and os.path.exists(st.session_state['audio_path']):
     st.audio(st.session_state['audio_path'])
-    # Add a download button for convenience
     with open(st.session_state['audio_path'], "rb") as file:
         st.download_button(
             label="Download Audio Tour",
